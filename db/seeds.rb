@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Seeding.."
+fields = ["Content Writing", "Data Science", "UI/UX Design", "Digital Marketing", "Product Management", "Software/Web Development"]
+fields.length.times do |i|
+ Expertise.create!(
+  field: fields[i]
+ )
+end
+puts "Done seeding expertise"

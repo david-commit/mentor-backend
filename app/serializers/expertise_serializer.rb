@@ -1,3 +1,3 @@
 class ExpertiseSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :field
 end
