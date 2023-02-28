@@ -16,13 +16,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_082813) do
 
   create_table "expertises", force: :cascade do |t|
     t.string "field"
+    t.integer "seniority_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "seniorities", force: :cascade do |t|
     t.string "level"
-    t.integer "expertise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
