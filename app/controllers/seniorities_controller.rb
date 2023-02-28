@@ -11,8 +11,13 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
   render json: level, status: :created
  end
 
+ def show
+  level = Seniority.find(params[:id])
+  render json: level, status: :ok
+ end
+
  def destroy
-  level = Seniority.find(id: params[:id])
+  level = Seniority.find(params[:id])
   level.destroy
   head :no_content
  end
