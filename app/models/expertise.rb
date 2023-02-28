@@ -1,6 +1,7 @@
 class Expertise < ApplicationRecord
 
- # had=s_many :mentors
+ # has_many :mentors
+ # has_many :seniorities
  validates :field, presence: true
  validates :field, uniqueness: true
 

@@ -6,11 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "Seeding.."
+puts "Begin Seeding.."
+puts "Seeding expertises.."
 fields = ["Content Writing", "Data Science", "UI/UX Design", "Digital Marketing", "Product Management", "Software/Web Development"]
 fields.length.times do |i|
- Expertise.create!(
-  field: fields[i]
- )
+ Expertise.create!(field: fields[i])
 end
-puts "Done seeding expertise"
+
+puts "Seeding seniority levels.."
+levels = ["All", "Entry Level", "Senior", "Manager", "Director", "Lead", "Executive", "Founder"]
+levels.length.times do |i|
+ Seniority.create!(level: levels[i])
+end
