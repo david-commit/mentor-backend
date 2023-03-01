@@ -26,6 +26,15 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
   end
  end
 
+ # Update user records
+ def update
+  # INCOMPLETE - User must be logged in to update records
+  mentee = Mentee.find_by(email: params[:email])
+  if mentee
+   Mentee.update(update_params), status: :accepted
+  end
+ end
+
  # User self destruct his/her account
  def destroy
   # INCOMPLETE - Check for user session before destroy
@@ -37,6 +46,14 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
  end
  
  private
+
+ def mentee_params
+  params.permit(:full_name, :dob, :email, :phone, :bio, :title, :organization, :gender, :country, :language, :expertise, :top_goal)
+ end
+
+ def update_params
+  params.permit(:bio, :title, :organization, :langauge, :expertise)
+ end
 
  def render_record_not_found
   render json: { error: "User record not found" }
